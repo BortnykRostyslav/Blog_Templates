@@ -29,7 +29,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/', [Main\IndexController::class, '__invoke']);
     });
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
-        Route::get('/', [Category\IndexController::class, '__invoke']);
+        Route::get('/', [Category\IndexController::class, '__invoke'])->name('admin.category.index');
+        Route::get('/create', [Category\CreateController::class, '__invoke'])->name('admin.category.create');
     });
 });
 
