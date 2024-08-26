@@ -31,6 +31,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
         Route::get('/', [Category\IndexController::class, '__invoke'])->name('admin.category.index');
         Route::get('/create', [Category\CreateController::class, '__invoke'])->name('admin.category.create');
+        Route::post('/', [Category\StoreController::class, '__invoke'])->name('admin.category.store');
     });
 });
 
