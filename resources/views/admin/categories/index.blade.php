@@ -40,6 +40,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Action</th>
+                                    <th>Edit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -48,6 +49,7 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->title }}</td>
                                         <td><a href="{{ route('admin.category.show', $category) }}"><i class="far fa-eye"></i></a></td>
+                                        <td><a href="{{ route('admin.category.edit', $category) }}" class="text-success"><i class="fas fa-pencil-alt" ></i></a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
