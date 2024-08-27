@@ -33,6 +33,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/create', [Category\CreateController::class, '__invoke'])->name('admin.category.create');
         Route::post('/', [Category\StoreController::class, '__invoke'])->name('admin.category.store');
         Route::get('/{category}', [Category\ShowController::class, '__invoke'])->name('admin.category.show');
+        Route::get('/{category}/edit', [Category\EditController::class, '__invoke'])->name('admin.category.edit');
+        Route::patch('/{category}', [Category\UpdateController::class, '__invoke'])->name('admin.category.update');
     });
 });
 
