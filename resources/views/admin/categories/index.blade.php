@@ -37,19 +37,21 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
-                                    <th>Edit</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">View</th>
+                                    <th class="text-center">Edit</th>
+                                    <th class="text-center">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($categories as $category)
                                     <tr>
-                                        <td>{{ $category->id }}</td>
-                                        <td>{{ $category->title }}</td>
-                                        <td><a href="{{ route('admin.category.show', $category) }}"><i class="far fa-eye"></i></a></td>
-                                        <td><a href="{{ route('admin.category.edit', $category) }}" class="text-success"><i class="fas fa-pencil-alt" ></i></a></td>
+                                        <td class="text-center">{{ $category->id }}</td>
+                                        <td class="text-center">{{ $category->title }}</td>
+                                        <td class="text-center"><a href="{{ route('admin.category.show', $category) }}"><i class="far fa-eye"></i></a></td>
+                                        <td class="text-center"><a href="{{ route('admin.category.edit', $category) }}" class="text-success"><i class="fas fa-pencil-alt" ></i></a></td>
+                                        <td class="text-center"><a href="{{ route('admin.category.edit', $category) }}" class="text-danger"><i class="fas fa-trash" ></i></a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
