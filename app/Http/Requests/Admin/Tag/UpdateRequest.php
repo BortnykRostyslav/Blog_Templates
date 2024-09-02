@@ -25,4 +25,12 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Title is required.',
+            'title.string' => 'Title must be a string.',
+        ];
+    }
 }
