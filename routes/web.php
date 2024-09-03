@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Admin\Category;
+use App\Http\Controllers\Admin\User;
 use App\Http\Controllers\Admin\Tag;
 use App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Admin\Main;
@@ -59,6 +60,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/{tag}/edit', [Tag\EditController::class, '__invoke'])->name('admin.tag.edit');
         Route::patch('/{tag}', [Tag\UpdateController::class, '__invoke'])->name('admin.tag.update');
         Route::delete('/{tag}', [Tag\DeleteController::class, '__invoke'])->name('admin.tag.delete');
+    });
+
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+        Route::get('/', [User\IndexController::class, '__invoke'])->name('admin.user.index');
+        Route::get('/create', [User\CreateController::class, '__invoke'])->name('admin.user.create');
+        Route::post('/', [User\StoreController::class, '__invoke'])->name('admin.user.store');
+        Route::get('/{user}', [User\ShowController::class, '__invoke'])->name('admin.user.show');
+        Route::get('/{user}/edit', [User\EditController::class, '__invoke'])->name('admin.user.edit');
+        Route::patch('/{user}', [User\UpdateController::class, '__invoke'])->name('admin.user.update');
+        Route::delete('/{user}', [User\DeleteController::class, '__invoke'])->name('admin.user.delete');
     });
 });
 
