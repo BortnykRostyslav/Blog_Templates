@@ -24,6 +24,9 @@ Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], fun
     });
     Route::group(['prefix' => 'comments'], function () {
         Route::get('/', [App\Http\Controllers\Personal\Comment\IndexController::class, '__invoke'])->name('personal.comment.index');
+        Route::get('/{comment}/edit', [App\Http\Controllers\Personal\Comment\EditController::class, '__invoke'])->name('personal.comment.edit');
+        Route::patch('/{comment}', [App\Http\Controllers\Personal\Comment\UpdateController::class, '__invoke'])->name('personal.comment.update');
+        Route::delete('/{comment}', [App\Http\Controllers\Personal\Comment\DeleteController::class, '__invoke'])->name('personal.comment.delete');
     });
 });
 
