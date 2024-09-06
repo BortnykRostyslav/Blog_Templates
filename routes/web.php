@@ -20,6 +20,7 @@ Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], fun
 
     Route::group(['prefix' => 'liked'], function () {
         Route::get('/', [App\Http\Controllers\Personal\Liked\IndexController::class, '__invoke'])->name('personal.liked.index');
+        Route::delete('/{post}', [App\Http\Controllers\Personal\Liked\DeleteController::class, '__invoke'])->name('personal.liked.delete');
     });
     Route::group(['prefix' => 'comments'], function () {
         Route::get('/', [App\Http\Controllers\Personal\Comment\IndexController::class, '__invoke'])->name('personal.comment.index');
