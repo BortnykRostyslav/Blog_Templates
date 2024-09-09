@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke'])->name('main.index');
 
+Route::group(['prefix' => 'posts'], function () {
+    Route::get('/', [App\Http\Controllers\Post\IndexController::class, '__invoke'])->name('post.index');
+    Route::get('/{post}', [App\Http\Controllers\Post\ShowController::class, '__invoke'])->name('post.show');
+});
+
 Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/', [App\Http\Controllers\Personal\Main\IndexController::class, '__invoke'])->name('personal.main.index');
 
