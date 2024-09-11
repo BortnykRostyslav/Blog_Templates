@@ -22,6 +22,17 @@ Route::group(['prefix' => 'posts'], function () {
     Route::group(['prefix' => '{post}/comments'], function () {
         Route::post('/', [App\Http\Controllers\Post\Comment\StoreController::class, '__invoke'])->name('post.comment.store');
     });
+    Route::group(['prefix' => '{post}/likes'], function () {
+        Route::post('/', [App\Http\Controllers\Post\Like\StoreController::class, '__invoke'])->name('post.like.store');
+    });
+});
+
+Route::group(['prefix' => 'categories'], function () {
+    Route::get('/', [App\Http\Controllers\Category\IndexController::class, '__invoke'])->name('category.index');
+
+    Route::group(['prefix' => '{category}/posts'], function () {
+        Route::get('/', [App\Http\Controllers\Category\Post\IndexController::class, '__invoke'])->name('category.post.index');
+    });
 });
 
 Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
